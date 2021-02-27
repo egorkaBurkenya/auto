@@ -11,8 +11,8 @@ with open('folders.json') as json_file:
 
 class MyHandler(FileSystemEventHandler):
   def on_modified(self, event):
-    for filename in os.listdir(folders["folder_to_track"]):
-      src = folders["folder_to_track"] + "/" + filename
+    for filename in os.listdir(folders["meTerminal"]):
+      src = folders["meTerminal"] + "/" + filename
       try:
         new_folder = folders[filename.split('.')[-1]]
       except KeyError:
@@ -23,7 +23,7 @@ class MyHandler(FileSystemEventHandler):
 event_handler = MyHandler()
 observer = Observer()
 
-observer.schedule(event_handler, folders["folder_to_track"], recursive=True)
+observer.schedule(event_handler, folders["meTerminal"], recursive=True)
 observer.start()
 
 try:

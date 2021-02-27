@@ -5,8 +5,8 @@ import time
 with open('folders.json') as json_file:
     folders = json.load(json_file)
 
-for filename in os.listdir(folders["folder_to_track"]):
-      src = folders["folder_to_track"] + "/" + filename
+for filename in os.listdir(folders["meTerminal"]):
+      src = folders["meTerminal"] + "/" + filename
       try:
         new_folder = folders[filename.split('.')[-1]]
       except KeyError:
